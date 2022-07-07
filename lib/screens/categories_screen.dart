@@ -11,9 +11,16 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("amogus")
+
+ final appbar = AppBar(
+      title: Text(
+        "categories",
+        style: TextStyle(color: Theme.of(context).colorScheme.primary),
       ),
+    );
+
+    return Scaffold(
+      appBar: appbar,
       body: GridView(
         padding: const  EdgeInsets.all(22),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

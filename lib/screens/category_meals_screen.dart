@@ -7,10 +7,6 @@ import '../widgets/meal_item.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   static const routeName = '/category-meals';
-  // final String categoryId;
-  // final String categorytitle;
-
-  // CategoryMealsScreen({required this.categoryId, required this.categorytitle});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +18,18 @@ class CategoryMealsScreen extends StatelessWidget {
       return meal.categories.contains(categoryId);
     })).toList();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(categorytitle!),
+    final appbar = AppBar(
+      title: Text(
+        categorytitle!,
+        style: TextStyle(color: Theme.of(context).colorScheme.primary),
       ),
+    );
+    return Scaffold(
+      appBar: appbar,
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
+              id: specificMeal[index].id,
               title: specificMeal[index].title,
               imageURl: specificMeal[index].imageUrl,
               duration: specificMeal[index].duration,
