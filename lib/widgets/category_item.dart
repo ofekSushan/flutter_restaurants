@@ -1,11 +1,6 @@
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import '../models/category.dart';
+
 import 'package:flutter/material.dart';
-import '../dummy_data.dart';
 import '../screens/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -14,6 +9,7 @@ class CategoryItem extends StatelessWidget {
   final Color color;
 
   CategoryItem({required this.title, required this.color, required this.id});
+
 
   void selectCategory(context) {
     Navigator.of(context).pushNamed(CategoryMealsScreen.routeName,

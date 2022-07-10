@@ -1,5 +1,3 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../widgets/category_item.dart';
@@ -12,16 +10,14 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
- final appbar = AppBar(
-      title: Text(
-        "categories",
-        style: TextStyle(color: Theme.of(context).colorScheme.primary),
-      ),
-    );
+//  final appbar = AppBar(
+//       title: Text(
+//         "categories",
+//         style: TextStyle(color: Theme.of(context).colorScheme.primary),
+//       ),
+//     );
 
-    return Scaffold(
-      appBar: appbar,
-      body: GridView(
+    return GridView(
         padding: const  EdgeInsets.all(22),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
@@ -38,7 +34,7 @@ class CategoriesScreen extends StatelessWidget {
               ),
             )
             .toList(),
-      ),
-    );
+      );
+    
   }
 }

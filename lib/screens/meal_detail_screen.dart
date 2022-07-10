@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:navigation_app/models/meal.dart';
 import '../widgets/steps.dart';
 import '../widgets/ingredients.dart';
 
@@ -19,7 +16,7 @@ class MealDetailScreen extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary)));
   }
 
-  const MealDetailScreen({Key? key}) : super(key: key);
+   MealDetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,7 @@ class MealDetailScreen extends StatelessWidget {
         appBar: appbar,
         body: SingleChildScrollView(
           child: Column(children: [
-            Container(
+            SizedBox(
                 height:MediaQuery.of(context).size.height * 0.35, 
                 width: double.infinity,
                 child: Image.network(

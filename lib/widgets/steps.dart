@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
+
 class Steps extends StatelessWidget {
   final Meal selectedMeal;
   final Function buildSectionTitle;
@@ -36,7 +37,7 @@ class Steps extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                         const Divider()
+                        const Divider()
                       ],
                     )),
                 itemCount: selectedMeal.steps.length,
