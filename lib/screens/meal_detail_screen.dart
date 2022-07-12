@@ -7,6 +7,11 @@ import '../dummy_data.dart';
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/category-meals-detail';
 
+  final void Function(String) toggleFavorite;
+  final Function(String) isMealFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isMealFavorite);
+
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
         margin: EdgeInsets.symmetric(vertical: 10),
@@ -15,8 +20,6 @@ class MealDetailScreen extends StatelessWidget {
                 fontSize: MediaQuery.of(context).size.width * 0.05,
                 color: Theme.of(context).colorScheme.primary)));
   }
-
-   MealDetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +35,31 @@ class MealDetailScreen extends StatelessWidget {
       ),
     );
     return Scaffold(
-        appBar: appbar,
-        body: SingleChildScrollView(
-          child: Column(children: [
-            SizedBox(
-                height:MediaQuery.of(context).size.height * 0.35, 
-                width: double.infinity,
-                child: Image.network(
-                  mealId["imageURl"],
-                  fit: BoxFit.cover,
-                )),
-            ingredients(
-              selectedMeal: selectedMeal,
-              buildSectionTitle: buildSectionTitle,
-            ),
-            Steps(
-                selectedMeal: selectedMeal,
-                buildSectionTitle: buildSectionTitle),
-          ]),
-        ));
+      appBar: appbar,
+      body: SingleChildScrollView(
+        child: Column(children: [
+          SizedBox(
+              height: MediaQuery.of(context).size.height * 0.35,
+              width: double.infinity,
+              child: Image.network(
+                mealId["imageURl"],
+                fit: BoxFit.cover,
+              )),        
+          ingredients(
+            selectedMeal: selectedMeal,
+            buildSectionTitle: buildSectionTitle,
+          ),
+          Steps(
+              selectedMeal: selectedMeal, buildSectionTitle: buildSectionTitle),
+        ]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+            isMealFavorite(selectedMeal.id) ? Icons.star : Icons.star_border),
+        onPressed: () {
+          toggleFavorite(selectedMeal.id);
+        },
+      ),
+    );
   }
 }

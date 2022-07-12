@@ -17,7 +17,8 @@ class MealItem extends StatelessWidget {
       required this.imageURl,
       required this.duration,
       required this.complexity,
-      required this.affordability});
+      required this.affordability,
+      });
 
   String complexityEnumText() {
     // switch is if statement but better for alot of if
@@ -59,8 +60,12 @@ class MealItem extends StatelessWidget {
       "title": title,
       "duration": duration,
       "imageURl": imageURl
-    });
+    }
+      
+    
+    );
   }
+  
 
   @override
   Widget build(BuildContext context) {
